@@ -25,21 +25,14 @@ private class AppViewModel {
 
 struct MainView: View {
     @State private var appViewModel = AppViewModel()
-    @State private var profileNavigationRouter = NavigationRouter()
-    @State private var homeNavigationRouter = NavigationRouter()
     var body: some View {
-        let allowedHomeTabs: [Tab] = Tab.allowedHomeTabs()
-        
         TabView(selection: $appViewModel.selectedTab) {
-            ForEach(allowedHomeTabs, id: \.self) { tab in
-                TabScreenExample(tab: .profile)
-                    .tag(Tab.profile)
-                    .environment(profileNavigationRouter)
-                
-                TabScreenExample(tab: .home)
-                    .tag(Tab.home)
-                    .environment(homeNavigationRouter)
-            }
+            TabScreenExample(tab: Tab.profile)
+                .tag(Tab.profile)
+                .environment(appViewModel.navigationRouters[Tab.profile]!)
+            
+            TabScreenExample(tab: Tab.home)
+                .environment(appViewModel.navigationRouters[Tab.home]!)
         }
         .tabViewStyle(.page)
     }
@@ -53,13 +46,12 @@ struct TabScreenExample: View {
         SNavigationStack {
             VStack {
                 Text(tab.rawValue)
+                
                 Button("Go to Profile Screen") {
-                    print("Navigating to Profile")
                     navigationRouter.navigateTo(destination: ProfileScreen())
                 }
             }
         }
-        .environment(navigationRouter)
     }
 }
 
