@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct ProfileScreen: NavigableView {
-    var viewIdentifier = "ProfileScreen"
+    let viewIdentifier = "ProfileScreen"
     @Environment(NavigationRouter.self) var router: NavigationRouter
     var body: some View {
         VStack {
