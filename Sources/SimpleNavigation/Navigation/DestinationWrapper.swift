@@ -9,7 +9,7 @@ import SwiftUI
 /// - Provides stable identity through a UUID
 
 internal struct DestinationWrapper: Hashable {
-    let id = UUID()
+    private let id = UUID()
     let content: () -> AnyView
 
     init<T: NavigableView>(@ViewBuilder content: @escaping () -> T) {
