@@ -1,6 +1,7 @@
 
 import SwiftUI
 
+
 public protocol NavigableView: Hashable, View, Identifiable {
     var id: UUID { get }
 }

@@ -1,6 +1,13 @@
 
 import SwiftUI
 
+/// A wrapper type that encapsulates a navigable view destination
+///
+/// This internal type is used by the `NavigationRouter` to wrap destination views in a way that:
+/// - Preserves type erasure through `AnyView`
+/// - Maintains `Hashable` conformance for navigation path storage
+/// - Provides stable identity through a UUID
+
 internal struct DestinationWrapper: Hashable {
     let id = UUID()
     let content: () -> AnyView
