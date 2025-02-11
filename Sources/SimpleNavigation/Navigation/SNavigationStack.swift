@@ -1,4 +1,3 @@
-
 import SwiftUI
 
 public struct SNavigationStack<Content: View>: View {

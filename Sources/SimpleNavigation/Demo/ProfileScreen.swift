@@ -1,9 +1,4 @@
-//
-//  ProfileScreen.swift
-//  SimpleNavigation
-//
-//  Created by Ociel Lerma on 2/10/25.
-//
+
 import SwiftUI
 
 struct ProfileScreen: NavigableView {
