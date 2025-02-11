@@ -47,11 +47,22 @@ import SwiftUI
 import SimpleNavigation
 
 struct ProfileScreen: NavigableView {
+    let viewIdentifier = "ProfileScreen"
     var body: some View {
         VStack {
             Text("Welcome to the Profile Screen")
         }
         .navigationTitle("Profile")
+    }
+}
+
+extension ProfileScreen {
+    nonisolated func hash(into hasher: inout Hasher) {
+        hasher.combine(viewIdentifier)
+    }
+    
+     nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.viewIdentifier == rhs.viewIdentifier
     }
 }
 ```
