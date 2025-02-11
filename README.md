@@ -32,3 +32,69 @@ import SimpleNavigation
 ```
 
 See the Examples in this project. 
+
+
+## Example Usage
+
+To integrate `SimpleNavigation` into your SwiftUI project, follow these steps:
+
+### 1. Conform to the `NavigableView` Protocol
+
+Each destination view must conform to the `NavigableView` protocol to be used in the navigation stack.
+
+```swift
+import SwiftUI
+import SimpleNavigation
+
+struct ProfileScreen: NavigableView {
+    var body: some View {
+        VStack {
+            Text("Welcome to the Profile Screen")
+        }
+        .navigationTitle("Profile")
+    }
+}
+```
+
+### 2. Pass in the NavigationRouter Object Using .environment
+
+To manage navigation, create a NavigationRouter instance and pass it to your SwiftUI views using the .environment modifier.
+
+```swift
+struct HomeScreen: View {
+    @State private var router = NavigationRouter()
+
+    var body: some View {
+        SNavigationStack {
+            VStack {
+                Button {
+                    router.navigateTo(destination: ProfileScreen())
+                } label: {
+                    Text("Navigate to Profile Screen")
+                }
+            }
+            .padding()
+        }
+        .environment(router) // Inject the router into the environment
+    }
+}
+```
+### 3. Preview the Navigation Behavior
+
+You can also preview your navigation behavior using SwiftUI previews.
+
+```swift
+#Preview {
+    @Previewable @State var router = NavigationRouter()
+    SNavigationStack {
+        VStack {
+            Button {
+                router.navigateTo(destination: ProfileScreen())
+            } label: {
+                Text("Navigate to Profile Screen NavigableView")
+            }
+        }
+    }
+    .environment(router)
+}
+```
