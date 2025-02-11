@@ -1,9 +1,8 @@
 
 import SwiftUI
 
-struct SomeViewScreen: NavigableView {
+struct SomeViewScreen: View {
     @Environment(NavigationRouter.self) var router: NavigationRouter
-    var viewIdentifier = "SomeViewScreen"
     var body: some View {
         VStack {
             Text("Entered Another View that conforms to NavigableView")
@@ -15,15 +14,3 @@ struct SomeViewScreen: NavigableView {
         }
     }
 }
-
-extension SomeViewScreen {
-    nonisolated func hash(into hasher: inout Hasher) {
-        hasher.combine(viewIdentifier)
-    }
-    
-    nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.viewIdentifier == rhs.viewIdentifier
-    }
-}
-
-

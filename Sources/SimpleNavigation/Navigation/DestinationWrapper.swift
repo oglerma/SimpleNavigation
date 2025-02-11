@@ -8,11 +8,11 @@ import SwiftUI
 /// - Maintains `Hashable` conformance for navigation path storage
 /// - Provides stable identity through a UUID
 
-internal struct DestinationWrapper: Hashable {
+struct DestinationWrapper: Hashable {
     private let id = UUID()
     let content: () -> AnyView
 
-    init<T: NavigableView>(@ViewBuilder content: @escaping () -> T) {
+    init<T: View>(@ViewBuilder content: @escaping () -> T) {
         self.content = { AnyView(content()) }
     }
 

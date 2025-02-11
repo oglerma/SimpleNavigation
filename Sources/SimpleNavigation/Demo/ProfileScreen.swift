@@ -1,8 +1,7 @@
 
 import SwiftUI
 
-struct ProfileScreen: NavigableView {
-    let viewIdentifier = "ProfileScreen"
+struct ProfileScreen: View {
     @Environment(NavigationRouter.self) var router: NavigationRouter
     var body: some View {
         VStack {
@@ -11,22 +10,12 @@ struct ProfileScreen: NavigableView {
             } label: {
                 Text("Navigate to Another Screen")
             }
-                        
+
             Button {
                 router.popDestination()
             } label: {
                 Text("Pop View")
             }
         }
-    }
-}
-
-extension ProfileScreen {
-    nonisolated func hash(into hasher: inout Hasher) {
-        hasher.combine(viewIdentifier)
-    }
-    
-     nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
-        return lhs.viewIdentifier == rhs.viewIdentifier
     }
 }
