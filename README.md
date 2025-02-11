@@ -61,6 +61,8 @@ struct ProfileScreen: NavigableView {
 To manage navigation, create a NavigationRouter instance and pass it to your SwiftUI views using the .environment modifier.
 
 ```swift
+import SimpleNavigation
+
 struct HomeScreen: View {
     @State private var router = NavigationRouter()
 
