@@ -70,6 +70,7 @@ extension ProfileScreen {
 ### 2. Pass in the NavigationRouter Object Using .environment
 
 To manage navigation, create a NavigationRouter instance and pass it to your SwiftUI views using the .environment modifier.
+Replace `NavigationStack` with `SNavigationStack`
 
 ```swift
 import SimpleNavigation
