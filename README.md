@@ -91,7 +91,7 @@ You can also preview your navigation behavior using SwiftUI previews.
             Button {
                 router.navigateTo(destination: ProfileScreen())
             } label: {
-                Text("Navigate to Profile Screen NavigableView")
+                Text("Navigate to Profile Screen")
             }
         }
     }
