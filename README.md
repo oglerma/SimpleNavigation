@@ -1,4 +1,4 @@
-# SimpleNavigation SwiftUI iOS 18+
+# SimpleNavigation SwiftUI iOS 16+
 
 SimpleNavigation is a Swift package designed to facilitate straightforward navigation management in Swift applications. It provides a streamlined approach to handle navigation tasks, making it easier for developers to implement and manage navigation flows within their apps.
 
